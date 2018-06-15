@@ -14,10 +14,12 @@ var path = require('path');
 
 var fs = require('fs');
 
+var mock = require('./data');
+
 //开发 --- 编译scss 
 
 gulp.task('devSass', function() {
-    return gulp.src('src/scss/*.scss')
+    return gulp.src('src/scss/**/*.scss')
         .pipe(sass())
         .pipe(autoprefixer({
             borwsers: ['last 2 versions', 'Android > 4.0']
@@ -27,7 +29,7 @@ gulp.task('devSass', function() {
 
 //开发 --- 监听scss
 gulp.task('devWatch', function() {
-    return gulp.watch('src/scss/*.scss', ['devSass']);
+    return gulp.watch('src/scss/**/*.scss', ['devSass']);
 })
 
 //起服务
@@ -40,7 +42,9 @@ gulp.task('server', function() {
                 if (pathname === '/favicon.ico') {
                     return false;
                 }
-
+                if (/\/api/g.test(pathname)) {
+                    res.end(JSON.stringify(mock(pathname)))
+                }
                 pathname = pathname === '/' ? '/index.html' : pathname;
                 res.end(fs.readFileSync(path.join(__dirname, 'src', pathname)));
             }
