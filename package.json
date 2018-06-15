@@ -1,0 +1,27 @@
+{
+  "name": "book-city",
+  "version": "1.0.0",
+  "description": "book city",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiaodanli/book-city-A.git"
+  },
+  "keywords": [
+    "book"
+  ],
+  "author": "1603A",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xiaodanli/book-city-A/issues"
+  },
+  "homepage": "https://github.com/xiaodanli/book-city-A#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-webserver": "^0.9.1"
+  }
+}
