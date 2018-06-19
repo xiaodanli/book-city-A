@@ -248,4 +248,14 @@ body {
         flex: 1;
         overflow: hidden;
     }
+    .block {
+        width: 100%;
+        border-bottom: pxTorem(10px) solid $border-color;
+        h2 {
+            line-height: pxTorem(44px);
+            border-left: pxTorem(4px) solid $tab-active-color;
+            padding-left: pxTorem(15px);
+            border-bottom: 1px solid $border-color;
+        }
+    }
 }

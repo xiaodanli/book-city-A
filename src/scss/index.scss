@@ -3,15 +3,6 @@
     width: 100%;
     height: 100%;
     .book-city {
-        ul {
-            width: 100%;
-            li {
-                width: 100%;
-                height: pxTorem(60px);
-                line-height: pxTorem(60px);
-                border-bottom: 1px solid gray;
-            }
-        }
         &>div {
             width: 100%;
             position: relative;
@@ -38,6 +29,52 @@
                 position: absolute;
                 bottom: pxTorem(-44px);
                 left: 0;
+            }
+        }
+    }
+}
+
+.search-link {
+    width: 100%;
+    height: pxTorem(74px);
+    padding: pxTorem(15px);
+    display: flex;
+    @include sizing;
+    .not-ipt {
+        border: 1px solid $border-color;
+        flex: 1;
+        height: pxTorem(44px);
+        line-height: pxTorem(44px);
+        @include bg("../imgs/icon-search.png", pxTorem(15px));
+        background-size: pxTorem(18px);
+        padding-left: pxTorem(48px);
+    }
+    .switch-btn {
+        width: pxTorem(44px);
+        height: pxTorem(44px);
+        @include bg("../imgs/icon-switch.png");
+        background-size: pxTorem(18px);
+        border: 1px solid $border-color;
+        margin-left: pxTorem(15px);
+    }
+}
+
+.top-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    li {
+        width: 33.3%;
+        dl {
+            width: pxTorem(88px);
+            margin: pxTorem(10px) auto;
+            dt {
+                width: 100%;
+                height: pxTorem(120px);
+                overflow: hidden;
+            }
+            img {
+                width: 100%;
             }
         }
     }

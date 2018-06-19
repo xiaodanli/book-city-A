@@ -1,10 +1,13 @@
-require(['jquery', 'swiper', 'bscroll', 'direction'], function($, swiper, bscroll, direction) {
-
+require(['jquery', 'swiper', 'bscroll', 'direction', 'render', 'text!bookTB'], function($, swiper, bscroll, direction, render, bookTB) {
+    console.log(bookTB);
+    $("body").append(bookTB);
     $.ajax({
         url: '/api/home',
         dataType: 'json',
         success: function(res) {
             console.log(res);
+            render("#book-t-b", ".top-list", res.items[1].data);
+
         },
         error: function(error) {
             console.warn(error)

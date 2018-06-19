@@ -1,4 +1,5 @@
-var homeJson = require('./mock/json.json');
+var homeJson = require('./mock/home.json');
+
 
 var obj = {
     "/api/home": homeJson

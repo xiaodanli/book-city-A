@@ -258,17 +258,18 @@ body {
     width: 100%;
     flex: 1;
     overflow: hidden; }
+  .wrap .block {
+    width: 100%;
+    border-bottom: 0.26667rem solid #ddd; }
+    .wrap .block h2 {
+      line-height: 1.17333rem;
+      border-left: 0.10667rem solid #ff6600;
+      padding-left: 0.4rem;
+      border-bottom: 1px solid #ddd; }
 
 .wrap-swiper {
   width: 100%;
   height: 100%; }
-  .wrap-swiper .book-city ul {
-    width: 100%; }
-    .wrap-swiper .book-city ul li {
-      width: 100%;
-      height: 1.6rem;
-      line-height: 1.6rem;
-      border-bottom: 1px solid gray; }
   .wrap-swiper .book-city > div {
     width: 100%;
     position: relative; }
@@ -294,3 +295,43 @@ body {
       position: absolute;
       bottom: -1.17333rem;
       left: 0; }
+
+.search-link {
+  width: 100%;
+  height: 1.97333rem;
+  padding: 0.4rem;
+  display: flex;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box; }
+  .search-link .not-ipt {
+    border: 1px solid #ddd;
+    flex: 1;
+    height: 1.17333rem;
+    line-height: 1.17333rem;
+    background: url("../imgs/icon-search.png") no-repeat 0.4rem center;
+    background-size: 0.48rem;
+    padding-left: 1.28rem; }
+  .search-link .switch-btn {
+    width: 1.17333rem;
+    height: 1.17333rem;
+    background: url("../imgs/icon-switch.png") no-repeat center center;
+    background-size: 0.48rem;
+    border: 1px solid #ddd;
+    margin-left: 0.4rem; }
+
+.top-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap; }
+  .top-list li {
+    width: 33.3%; }
+    .top-list li dl {
+      width: 2.34667rem;
+      margin: 0.26667rem auto; }
+      .top-list li dl dt {
+        width: 100%;
+        height: 3.2rem;
+        overflow: hidden; }
+      .top-list li dl img {
+        width: 100%; }
