@@ -295,6 +295,9 @@ body {
       padding-left: 0.4rem;
       border-bottom: 1px solid #ddd; }
 
+.none {
+  display: none; }
+
 /*超过几行显示省略号*/
 /*背景*/
 /* 滚动 */
@@ -347,37 +350,44 @@ html {
     .type-tags .tag:nth-child(3n+1) {
       background-color: #fbebe8; }
 
-.shelf-list {
-  width: 100%; }
-  .shelf-list li:nth-child(1) a {
+.inner-content {
+  width: 100%;
+  height: 100%; }
+
+.search-list {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch; }
+  .search-list li:nth-child(1) a {
     padding: 0 0.4rem 0.4rem 0.4rem; }
-  .shelf-list a {
+  .search-list a {
     display: flex;
     padding: 0.4rem;
     border-bottom: 0.02667rem solid #f5f5f5; }
-    .shelf-list a .book-cover {
+    .search-list a .book-cover {
       width: 2.66667rem;
       height: 3.73333rem;
       background-color: #eeece9;
       box-shadow: 0px 0.16rem 0.13333rem -0.08rem #aaa;
       border: 0.02667rem solid #f0f0f0;
       border-bottom: none; }
-      .shelf-list a .book-cover img {
+      .search-list a .book-cover img {
         width: 100%;
         height: 100%; }
-    .shelf-list a .book-info {
+    .search-list a .book-info {
       flex: 1;
       margin-left: 0.26667rem; }
-      .shelf-list a .book-info .title {
+      .search-list a .book-info .title {
         font-size: 0.42667rem;
         color: #333;
         margin: 0.16rem 0; }
-      .shelf-list a .book-info .author,
-      .shelf-list a .book-info .newest {
+      .search-list a .book-info .author,
+      .search-list a .book-info .newest {
         font-size: 0.37333rem;
         color: #555;
         line-height: 2; }
-      .shelf-list a .book-info .summary {
+      .search-list a .book-info .summary {
         font-size: 0.37333rem;
         color: #555;
         margin-bottom: 0.16rem;

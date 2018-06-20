@@ -295,6 +295,9 @@ body {
       padding-left: 0.4rem;
       border-bottom: 1px solid #ddd; }
 
+.none {
+  display: none; }
+
 .wrap-swiper {
   width: 100%;
   height: 100%; }
@@ -335,6 +338,7 @@ body {
   .search-link .not-ipt {
     border: 1px solid #ddd;
     flex: 1;
+    color: #333;
     height: 1.17333rem;
     line-height: 1.17333rem;
     background: url("../imgs/icon-search.png") no-repeat 0.4rem center;
@@ -363,6 +367,18 @@ body {
         overflow: hidden; }
       .top-list li dl img {
         width: 100%; }
+
+.list {
+  width: 100%; }
+  .list li {
+    width: 100%;
+    display: flex; }
+    .list li span {
+      display: block; }
+  .list.t-b-list li {
+    flex-direction: column; }
+    .list.t-b-list li span.author {
+      display: none; }
 
 .book-l-r-list {
   width: 100%; }

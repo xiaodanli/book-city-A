@@ -1,7 +1,15 @@
 @import "tpl/common.scss";
 @import "tpl/_type-tags.scss";
-.shelf-list {
+.inner-content {
     width: 100%;
+    height: 100%;
+}
+
+.search-list {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
     li:nth-child(1) {
         a {
             padding: 0 pxTorem(15px) pxTorem(15px) pxTorem(15px);

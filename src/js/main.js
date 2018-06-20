@@ -7,13 +7,25 @@ require.config({
         'bscroll': './libs/bscroll',
         'handlebars': './libs/handlebars-v4.0.11',
         'text': './libs/text',
+        'lazy': './libs/jquery.lazyload',
 
         //common
         'direction': './common/direction',
         'render': './common/render',
+        'storage': './common/storage',
+
         //app
         'index': './app/index',
-        'bookTB': '../page/tpl/book-t-b.html'
+        'search': './app/search',
 
+        //模板
+        'bookTB': '../page/tpl/book-t-b.html',
+        'bookSearchTpl': '../page/tpl/book-l-r-s-list.html'
+
+    },
+    shim: {
+        'lazy': {
+            deps: ['jquery']
+        }
     }
 })

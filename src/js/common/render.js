@@ -14,6 +14,14 @@ define(['jquery', 'handlebars'], function($, handlebars) {
             return index + 1
         })
 
+        handlebars.registerHelper("limit", function(index, options) {
+            if (index < 5) {
+                return options.fn(this)
+            } else {
+                return options.inverse(this);
+            }
+        })
+
         if (isHtml) {
             $(target).html(html);
         } else {

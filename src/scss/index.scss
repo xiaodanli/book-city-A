@@ -43,6 +43,7 @@
     .not-ipt {
         border: 1px solid $border-color;
         flex: 1;
+        color: $black-color;
         height: pxTorem(44px);
         line-height: pxTorem(44px);
         @include bg("../imgs/icon-search.png", pxTorem(15px));
@@ -75,6 +76,25 @@
             }
             img {
                 width: 100%;
+            }
+        }
+    }
+}
+
+.list {
+    width: 100%;
+    li {
+        width: 100%;
+        display: flex;
+        span {
+            display: block;
+        }
+    }
+    &.t-b-list {
+        li {
+            flex-direction: column;
+            span.author {
+                display: none;
             }
         }
     }

@@ -14,6 +14,8 @@ var path = require('path');
 
 var fs = require('fs');
 
+var querystring = require('querystring');
+
 var mock = require('./data');
 
 //开发 --- 编译scss 
@@ -42,11 +44,18 @@ gulp.task('server', function() {
                 if (pathname === '/favicon.ico') {
                     return false;
                 }
+                console.log(querystring.unescape(req.url));
+
+                var reqUrl = querystring.unescape(req.url);
+
                 if (/\/api/g.test(pathname)) {
-                    res.end(JSON.stringify(mock(pathname)))
+                    //   /api/hot
+                    res.end(JSON.stringify(mock(reqUrl)))
+                } else {
+                    pathname = pathname === '/' ? '/index.html' : pathname;
+                    res.end(fs.readFileSync(path.join(__dirname, 'src', pathname)));
                 }
-                pathname = pathname === '/' ? '/index.html' : pathname;
-                res.end(fs.readFileSync(path.join(__dirname, 'src', pathname)));
+
             }
         }))
 })

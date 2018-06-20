@@ -294,3 +294,6 @@ body {
       border-left: 0.10667rem solid #ff6600;
       padding-left: 0.4rem;
       border-bottom: 1px solid #ddd; }
+
+.none {
+  display: none; }

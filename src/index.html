@@ -31,7 +31,7 @@
                             <ul>
                                 <section class="block">
                                     <div class="search-link">
-                                        <div class="not-ipt">请输入书名，作者，关键字</div>
+                                        <a class="not-ipt" href="./page/search.html">请输入书名，作者，关键字</a>
                                     </div>
                                     <!-- 轮播图注意加swiper-no-swiping -->
                                 </section>
@@ -45,7 +45,7 @@
                                     <h2>重磅推荐</h2>
                                     <ul class="l-f-list book-l-r-list"></ul>
                                     <script type="text/x-handlebars-template" id="book-l-r-tpl">
-                                        {{#each data}} {{#if (first @index)}}
+                                        {{#each data}}{{#limit @index}} {{#if (first @index)}}
                                         <li>
                                             <a href="#">
                                                 <div class="book-cover">
@@ -71,7 +71,7 @@
                                             <span>{{addInd @index}}</span>
                                             <h3 class="title">{{title}}</h3>
                                             <span>{{authors}}</span>
-                                        </li>{{/if}}{{/each}}
+                                        </li>{{/if}}{{/limit}}{{/each}}
                                     </script>
                                 </section>
                                 <li>17</li>
@@ -87,6 +87,19 @@
                             <div class="not-ipt">请输入书名，作者，关键字</div>
                             <div class="switch-btn"></div>
                         </div>
+                        <section>
+                            <ul class="list t-b-list">
+                                <li>
+                                    <dt>
+                                        <img src="./imgs/book1.jpg" alt="">
+                                    </dt>
+                                    <dd>
+                                        <span>标题</span>
+                                        <span class="author">作者</span>
+                                    </dd>
+                                </li>
+                            </ul>
+                        </section>
                     </div>
                 </div>
             </div>
