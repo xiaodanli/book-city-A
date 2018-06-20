@@ -13,10 +13,12 @@ require.config({
         'direction': './common/direction',
         'render': './common/render',
         'storage': './common/storage',
+        'getRequest': './common/getRequest',
 
         //app
         'index': './app/index',
         'search': './app/search',
+        'detail': './app/detail',
 
         //模板
         'bookTB': '../page/tpl/book-t-b.html',

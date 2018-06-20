@@ -9,7 +9,11 @@ require(['jquery', 'swiper', 'bscroll', 'direction', 'render', 'text!bookTB'], f
             // 本周最火
             render("#book-t-b", ".top-list", res.items[1].data);
             //重磅推荐
-            render("#book-l-r-tpl", ".l-f-list", res.items[2].data)
+            render("#book-l-r-tpl", ".l-f-list", res.items[2].data);
+            $(".top-list").on("click", "li", function() {
+                var fiction_id = $(this).attr("data-id");
+                location.href = "../../page/detail.html?fiction_id=" + fiction_id;
+            })
         },
         error: function(error) {
             console.warn(error)
