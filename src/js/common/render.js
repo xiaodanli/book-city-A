@@ -6,6 +6,14 @@ define(['jquery', 'handlebars'], function($, handlebars) {
 
         var html = template(data);
 
+        handlebars.registerHelper("first", function(index) {
+            console.log(index)
+            return index === 0
+        })
+        handlebars.registerHelper("addInd", function(index) {
+            return index + 1
+        })
+
         if (isHtml) {
             $(target).html(html);
         } else {

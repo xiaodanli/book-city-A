@@ -6,8 +6,10 @@ require(['jquery', 'swiper', 'bscroll', 'direction', 'render', 'text!bookTB'], f
         dataType: 'json',
         success: function(res) {
             console.log(res);
+            // 本周最火
             render("#book-t-b", ".top-list", res.items[1].data);
-
+            //重磅推荐
+            render("#book-l-r-tpl", ".l-f-list", res.items[2].data)
         },
         error: function(error) {
             console.warn(error)

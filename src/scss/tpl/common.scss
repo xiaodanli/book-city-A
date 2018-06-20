@@ -242,6 +242,39 @@ body {
                 }
             }
         }
+        .icon-back {
+            width: pxTorem(44px);
+            height: pxTorem(44px);
+            @include bg("../imgs/icon-back.png");
+            background-size: pxTorem(22px);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .search-wrap {
+            margin: pxTorem(5px) pxTorem(20px) 0 pxTorem(44px);
+            height: pxTorem(34px);
+            display: flex;
+            background-color: $write-color;
+            .icon-search {
+                width: pxTorem(34px);
+                height: pxTorem(34px);
+                @include bg("../imgs/icon-search.png");
+                background-size: pxTorem(16px);
+                border-right: 1px solid $header-bg;
+            }
+            .ipt {
+                flex: 1;
+                padding: 0 pxTorem(10px);
+            }
+            .search-btn {
+                width: pxTorem(44px);
+                height: pxTorem(34px);
+                text-align: center;
+                line-height: pxTorem(34px);
+                border-left: 1px solid $header-bg;
+            }
+        }
     }
     .content {
         width: 100%;
@@ -251,7 +284,7 @@ body {
     .block {
         width: 100%;
         border-bottom: pxTorem(10px) solid $border-color;
-        h2 {
+        .title-line {
             line-height: pxTorem(44px);
             border-left: pxTorem(4px) solid $tab-active-color;
             padding-left: pxTorem(15px);
