@@ -22,63 +22,76 @@
             <span class="icon-my"></span>
         </header>
         <!-- 内容 -->
-        <section class="content">
+        <section class="content none">
             <div class="swiper-container wrap-swiper swiper-no-swiping">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide book-city">
                         <!-- 书城 -->
                         <div up="上拉加载" down="下拉刷新">
-                            <ul>
-                                <section class="block">
-                                    <div class="search-link">
-                                        <a class="not-ipt" href="./page/search.html">请输入书名，作者，关键字</a>
-                                    </div>
-                                    <!-- 轮播图注意加swiper-no-swiping -->
-                                </section>
-                                <!-- 本周最火 -->
-                                <section class="block">
-                                    <h2 class="title-line">本周最火</h2>
-                                    <ul class="top-list"></ul>
-                                </section>
-                                <!-- 重磅推荐 -->
-                                <section class="block">
-                                    <h2>重磅推荐</h2>
-                                    <ul class="l-f-list book-l-r-list"></ul>
-                                    <script type="text/x-handlebars-template" id="book-l-r-tpl">
-                                        {{#each data}}{{#limit @index}} {{#if (first @index)}}
-                                        <li>
-                                            <a href="#">
-                                                <div class="book-cover">
-                                                    <img src="{{cover}}">
-                                                    <i class="order">{{addInd @index}}</i>
+                            <section class="block">
+                                <div class="search-link">
+                                    <a class="not-ipt" href="./page/search.html">请输入书名，作者，关键字</a>
+                                </div>
+                                <!-- 轮播图注意加swiper-no-swiping -->
+                                <div class="types">
 
-                                                    <span class="book-status">{{#if finish}}完结{{else}}连载{{/if}}</span>
-                                                </div>
-                                                <div class="book-info">
-                                                    <h2 class="title">{{title}}</h2>
-                                                    <span class="author">{{authors}}</span>
-                                                    <span class="intro">{{summary}}</span>
-                                                    <ol class="tag-list">
-                                                        {{#each tags}}
-                                                        <li>{{this}}</li>
-                                                        {{/each}}
-                                                    </ol>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        {{else}}
-                                        <li class="book-item">
-                                            <span>{{addInd @index}}</span>
-                                            <h3 class="title">{{title}}</h3>
-                                            <span>{{authors}}</span>
-                                        </li>{{/if}}{{/limit}}{{/each}}
-                                    </script>
-                                </section>
-                                <li>17</li>
-                                <li>18</li>
-                                <li>19</li>
-                                <li>20</li>
-                            </ul>
+                                </div>
+
+                                <script type="text/x-handlebars-template" id="type-tpl">
+                                    {{#each this}}
+                                    <dl>
+                                        <dt>
+                                            <img src="{{ad_copy}}" alt="">
+                                        </dt>
+                                        <dd>{{ad_name}}</dd>
+                                    </dl>
+                                    {{/each}}
+                                </script>
+                            </section>
+                            <!-- 本周最火 -->
+                            <section class="block">
+                                <h2 class="title-line">本周最火</h2>
+                                <ul class="top-list"></ul>
+                            </section>
+                            <!-- 重磅推荐 -->
+                            <section class="block">
+                                <h2>重磅推荐</h2>
+                                <ul class="l-f-list book-l-r-list"></ul>
+                                <button class="change-btn">换一换</button>
+                                <script type="text/x-handlebars-template" id="book-l-r-tpl">
+                                    {{#each this}}{{#limit @index}} {{#if (first @index)}}
+                                    <li>
+                                        <a href="#">
+                                            <div class="book-cover">
+                                                <img src="{{cover}}">
+                                                <i class="order">{{addInd @index}}</i>
+
+                                                <span class="book-status">{{#if finish}}完结{{else}}连载{{/if}}</span>
+                                            </div>
+                                            <div class="book-info">
+                                                <h2 class="title">{{title}}</h2>
+                                                <span class="author">{{authors}}</span>
+                                                <span class="intro">{{summary}}</span>
+                                                <ol class="tag-list">
+                                                    {{#each tags}}
+                                                    <li>{{this}}</li>
+                                                    {{/each}}
+                                                </ol>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    {{else}}
+                                    <li class="book-item">
+                                        <span>{{addInd @index}}</span>
+                                        <h3 class="title">{{title}}</h3>
+                                        <span>{{authors}}</span>
+                                    </li>{{/if}}{{/limit}}{{/each}}
+                                </script>
+                            </section>
+                            <!-- 上拉加载数据 -->
+                            <section class="block">
+                                <ul class="book-l-r-list loadmore"></ul>
+                            </section>
                         </div>
                     </div>
                     <div class="swiper-slide">

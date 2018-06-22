@@ -19,10 +19,12 @@ require.config({
         'index': './app/index',
         'search': './app/search',
         'detail': './app/detail',
+        'list': './app/list',
 
         //模板
         'bookTB': '../page/tpl/book-t-b.html',
-        'bookSearchTpl': '../page/tpl/book-l-r-s-list.html'
+        'bookSearchTpl': '../page/tpl/book-l-r-s-list.html',
+        'bookLR': '../page/tpl/book-l-r-list.html'
 
     },
     shim: {
