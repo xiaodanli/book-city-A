@@ -20,6 +20,8 @@ require.config({
         'search': './app/search',
         'detail': './app/detail',
         'list': './app/list',
+        'chapterList': './app/chapter-list',
+        'artical': './app/artical',
 
         //模板
         'bookTB': '../page/tpl/book-t-b.html',

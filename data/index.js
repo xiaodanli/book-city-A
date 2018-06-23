@@ -7,6 +7,7 @@ var recommend1 = require('./mock/recommend/recommend1.json');
 var recommend2 = require('./mock/recommend/recommend2.json');
 var recommend3 = require('./mock/recommend/recommend3.json');
 var femaleJson = require('./mock/female.json');
+var chapterList = require('./mock/chapter-list.json');
 
 var obj = {
     '/api/home': homeJson,
@@ -17,7 +18,8 @@ var obj = {
     '/api/loadMore?pagenum=1&count=10': recommend1,
     '/api/loadMore?pagenum=2&count=10': recommend2,
     '/api/loadMore?pagenum=3&count=10': recommend3,
-    '/api/female': femaleJson
+    '/api/female': femaleJson,
+    '/api/chapter?fiction_id=352876': chapterList
 }
 
 module.exports = function(path) {
