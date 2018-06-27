@@ -298,7 +298,7 @@ body {
   .wrap .content {
     width: 100%;
     flex: 1;
-    overflow: hidden; }
+    overflow-y: hidden; }
   .wrap .block {
     width: 100%;
     border-bottom: 0.26667rem solid #ddd; }
@@ -314,7 +314,7 @@ body {
 .artical-con {
   width: 100%;
   height: 100%;
-  background-color: #f7eee5;
+  background-color: #fff;
   padding: 0.26667rem;
   box-sizing: border-box;
   overflow-y: scroll; }

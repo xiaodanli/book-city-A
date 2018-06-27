@@ -298,7 +298,7 @@ body {
   .wrap .content {
     width: 100%;
     flex: 1;
-    overflow: hidden; }
+    overflow-y: hidden; }
   .wrap .block {
     width: 100%;
     border-bottom: 0.26667rem solid #ddd; }

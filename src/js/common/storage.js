@@ -3,7 +3,7 @@ define(function() {
 
     var obj = {
         set: function(key, val) {
-            if (!val) {
+            if (!val && val !== false) {
                 storage.removeItem(key)
             } else {
                 storage.setItem(key, JSON.stringify(val))

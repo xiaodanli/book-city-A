@@ -1,11 +1,19 @@
-require(['jquery', 'swiper', 'bscroll', 'direction', 'render', 'text!bookTB', 'text!bookLR'], function($, swiper, bscroll, direction, render, bookTB, bookLR) {
+require(['jquery', 'swiper', 'bscroll', 'direction', 'render', 'text!bookTB', 'text!bookLR', 'storage', 'loadRefresh'], function($, swiper, bscroll, direction, render, bookTB, bookLR, storage, loadRefresh) {
     $("body").append(bookTB);
     $("body").append(bookLR);
-    var pagenum = 1, //初始加载第一页
-        more = true, //是否有更多数据
-        num = 0, //重磅推荐默认显示前五条
+    var num = 0, //重磅推荐默认显示前五条
         len, //重磅推荐有几组数据 
         recommend; //格式化重磅推荐数据
+    var wrapSwiper;
+
+    //点击我的
+    $(".icon-my").on("click", function() {
+        if (storage.get("code")) {
+            location.href = "../../page/person.html";
+        } else {
+            location.href = "../../page/login.html";
+        }
+    })
 
     $.ajax({
         url: '/api/home',
@@ -30,6 +38,9 @@ require(['jquery', 'swiper', 'bscroll', 'direction', 'render', 'text!bookTB', 't
             len = recommend.length;
             renderRecommend(recommend[num]);
             $(".content").show();
+
+            //实例化wrap-swiper
+            wrapSwiper = new swiper('.wrap-swiper');
             $(".top-list").on("click", "li", function() {
                 var fiction_id = $(this).attr("data-id");
                 location.href = "../../page/detail.html?fiction_id=" + fiction_id;
@@ -96,8 +107,7 @@ require(['jquery', 'swiper', 'bscroll', 'direction', 'render', 'text!bookTB', 't
     }, false);
 
     //缓存元素
-    var _line = $(".line"),
-        _parent = $(".book-city>div");
+    var _line = $(".line");
 
     function swiperFun(activeIndex) {
         $(".tab-item").eq(activeIndex).addClass("active").siblings().removeClass("active");
@@ -109,59 +119,10 @@ require(['jquery', 'swiper', 'bscroll', 'direction', 'render', 'text!bookTB', 't
         wrapSwiper.slideTo(activeIndex);
     }
 
-    //实例化bscroll
-
-    var cityBscroll = new bscroll(".book-city", {
-        probeType: 2,
-        click: true,
-        scrollY: true
-    })
-
-    var fz = $("html").css("font-size");
-    console.log(parseInt(fz));
-    var hei = parseInt(fz) * 37.5 / 44;
-
-    cityBscroll.on("scroll", function() {
-        if (this.y < this.maxScrollY - hei) {
-            if (more) {
-                _parent.attr("up", "释放加载更多");
-            } else {
-                _parent.attr("up", "没有更多");
-            }
-        } else if (this.y < this.maxScrollY - hei / 2) {
-            if (more) {
-                _parent.attr("up", "上拉加载");
-            } else {
-                _parent.attr("up", "没有更多");
-            }
-        } else if (this.y > hei) {
-            _parent.attr("down", "释放刷新")
-        }
-    })
-
-    cityBscroll.on("touchEnd", function() {
-        if (_parent.attr("up") === "释放加载更多") {
-            console.log("加载下一页");
-            if (more) {
-                pagenum++;
-                loadMore();
-                _parent.attr("up", "上拉加载");
-            } else {
-                _parent.attr("up", "没有更多");
-            }
-        } else if (_parent.attr("down") === "释放刷新") {
-            location.reload();
-        }
-    })
-
-    //实例化wrap-swiper
-    var wrapSwiper = new swiper('.wrap-swiper');
-
     //点击tab
     $(".tab").on("click", ".tab-item", function() {
         $(this).addClass("active").siblings().removeClass("active");
         var ind = $(this).index();
-
         if (ind == 1) {
             _line.addClass("move");
         } else {
@@ -170,38 +131,10 @@ require(['jquery', 'swiper', 'bscroll', 'direction', 'render', 'text!bookTB', 't
         wrapSwiper.slideTo(ind);
     })
 
-    //上拉加载
-
-    function loadMore() {
-        $.ajax({
-            url: '/api/loadMore',
-            data: {
-                pagenum: pagenum,
-                count: 10
-            },
-            dataType: 'json',
-            success: function(res) {
-                console.log(res);
-                if (!res.more) {
-                    more = false
-                }
-                render("#l-r-tpl", ".loadmore", res.items);
-                cityBscroll.refresh();
-            },
-            error: function(error) {
-                console.warn(error)
-            }
-        })
-    }
-    loadMore();
-
     //点击类别
     $(".types").on("click", "dl", function() {
         location.href = "../../page/list.html";
     })
-
-
-
 })
 
 //接口地址：/api/loadMore

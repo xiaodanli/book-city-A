@@ -13,17 +13,13 @@
 <body>
     <div class="wrap">
         <!-- 内容 -->
-        <div class="artical-con">
-            <h2>标题</h2>
-            <p>顾庆丰当时还是个中年人，负责在卖票室值班，那天晚上，那列黑色的076开进站的时候，正好是他当值，那个时候，应该不可能会有火车靠站。他也没有提前收到任何的通知。</p>
-            <p>顾庆丰当时还是个中年人，负责在卖票室值班，那天晚上，那列黑色的076开进站的时候，正好是他当值，那个时候，应该不可能会有火车靠站。他也没有提前收到任何的通知。</p>
-            <p>顾庆丰当时还是个中年人，负责在卖票室值班，那天晚上，那列黑色的076开进站的时候，正好是他当值，那个时候，应该不可能会有火车靠站。他也没有提前收到任何的通知。</p>
-            <p>顾庆丰当时还是个中年人，负责在卖票室值班，那天晚上，那列黑色的076开进站的时候，正好是他当值，那个时候，应该不可能会有火车靠站。他也没有提前收到任何的通知。</p>
-            <p>顾庆丰当时还是个中年人，负责在卖票室值班，那天晚上，那列黑色的076开进站的时候，正好是他当值，那个时候，应该不可能会有火车靠站。他也没有提前收到任何的通知。</p>
-            <p>顾庆丰当时还是个中年人，负责在卖票室值班，那天晚上，那列黑色的076开进站的时候，正好是他当值，那个时候，应该不可能会有火车靠站。他也没有提前收到任何的通知。</p>
-            <p>顾庆丰当时还是个中年人，负责在卖票室值班，那天晚上，那列黑色的076开进站的时候，正好是他当值，那个时候，应该不可能会有火车靠站。他也没有提前收到任何的通知。</p>
-            <p>顾庆丰当时还是个中年人，负责在卖票室值班，那天晚上，那列黑色的076开进站的时候，正好是他当值，那个时候，应该不可能会有火车靠站。他也没有提前收到任何的通知。</p>
-        </div>
+        <div class="artical-con"></div>
+        <script type="text/x-handlebars-template" id="artical-tpl">
+            <h2>{{t}}</h2>
+            {{#each p}}
+            <p>{{this}}</p>
+            {{/each}}
+        </script>
         <!-- 设置面板 -->
         <div class="set-wrap none">
             <div>
@@ -34,12 +30,12 @@
                 <div class="mask"></div>
                 <div class="set-b">
                     <div class="set-chapter">
-                        <span>上一章</span>
+                        <span id="pre-btn">上一章</span>
                         <div class="chapter-num">
-                            <span class="cur-chapter">1</span>/
-                            <span class="total-chapter">66</span>
+                            <span class="cur-chapter"></span>/
+                            <span class="total-chapter"></span>
                         </div>
-                        <span>下一章</span>
+                        <span id="next-btn">下一章</span>
                     </div>
                     <div class="set-styles ">
                         <dl class="chapter-btn">
@@ -89,6 +85,16 @@
             require(['artical'])
         })
     </script>
+
+    <!-- 
+
+        duokan_("slkdjsdkjsdklsdjlksdjklsd")
+     -->
+    <!-- <script>
+         function duokan_fiction_chapter(data){
+            console.log(data)
+         }
+     </script> -->
 </body>
 
 </html>

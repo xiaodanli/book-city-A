@@ -18,6 +18,13 @@ var querystring = require('querystring');
 
 var mock = require('./data');
 
+var userList = [{
+        username: "lixd",
+        pwd: 123
+    }
+
+];
+
 //开发 --- 编译scss 
 
 gulp.task('devSass', function() {
@@ -48,7 +55,25 @@ gulp.task('server', function() {
 
                 var reqUrl = querystring.unescape(req.url);
 
-                if (/\/api/g.test(pathname)) {
+                if (pathname === '/api/login') {
+                    var arr = [];
+                    req.on("data", function(chunk) {
+                        arr.push(chunk);
+                    })
+                    req.on("end", function() {
+                        var params = querystring.parse(Buffer.concat(arr).toString());
+                        var isHas = userList.some(function(item) {
+                            return item.username == params.username && item.pwd == params.pwd
+                        })
+
+                        if (isHas) {
+                            res.end(JSON.stringify({ code: 1, msg: "登录成功" }))
+                        } else {
+                            res.end(JSON.stringify({ code: 0, msg: "登录失败" }))
+                        }
+                        console.log(params);
+                    })
+                } else if (/\/api/g.test(pathname)) {
                     //   /api/hot
                     res.end(JSON.stringify(mock(reqUrl)))
                 } else {

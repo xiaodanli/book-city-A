@@ -21,7 +21,7 @@
         </div>
         <script id="chapter-template" type="text/x-handlebars-template">
             {{#each this}}
-            <li>{{title}}</li>
+            <li>{{title}} <span>{{#if already}}已读{{else}}未读{{/if}}</span></li>
             {{/each}}
         </script>
     </div>
