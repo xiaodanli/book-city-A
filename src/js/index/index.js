@@ -19,7 +19,6 @@ require(['jquery', 'swiper', 'bscroll', 'direction', 'render', 'text!bookTB', 't
         url: '/api/home',
         dataType: 'json',
         success: function(res) {
-            console.log(res);
             //分类
             var typeArr = [];
             res.items[0].data.data.forEach(function(item) {
@@ -27,7 +26,6 @@ require(['jquery', 'swiper', 'bscroll', 'direction', 'render', 'text!bookTB', 't
                     typeArr.push(item);
                 }
             });
-            console.log(typeArr)
             render("#type-tpl", ".types", typeArr);
 
             // 本周最火
